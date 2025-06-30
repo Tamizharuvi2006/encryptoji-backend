@@ -1,3 +1,5 @@
+// routes/encrypt.js
+
 const { Router } = require('express');
 const CryptoJS = require('crypto-js');
 const { base64ToEmoji } = require('../emojiUtils');

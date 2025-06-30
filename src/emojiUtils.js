@@ -6,14 +6,14 @@ const emojiSet = [
   '😋','😎','😍','😘','🥰','😗','😙','😚','🙂','🤗',
   '🤩','🤔','🤨','😐','😑','😶','🙄','😏','😣','😥',
   '😮','🤐','😯','😪','😫','🥱','😴','😌','😛','😜',
-  '😝','🤤','😒','😓','😔','😕','🙃','🤑','😲','☹️',
-  '🙁','😖','😞','😟','😤','😢','😭','😦','😧','😨',
-  '😩','🤯','😬','😰','😱','🥵','🥶','😳','🤪'
-]; // 65 unique emojis
+  '😝','🤤','😒','😓','😔','😕','🙃','🤑','😲','🙁',
+  '😖','😞','😟','😤','😢','😭','😦','😧','😨','😩',
+  '🤯','😬','😰','😱','🥵','🥶','😳','🤪','🪐' // 🪐 for '=' padding
+];
 
-// Create maps
 const charToEmoji = {};
 const emojiToChar = {};
+
 base64Chars.split('').forEach((char, idx) => {
   charToEmoji[char] = emojiSet[idx];
   emojiToChar[emojiSet[idx]] = char;
@@ -29,7 +29,7 @@ function base64ToEmoji(base64Str) {
 
 // Converts emoji ➔ base64
 function emojiToBase64(emojiStr) {
-  return Array.from(emojiStr) // handles multibyte emojis correctly
+  return Array.from(emojiStr)
     .map(emoji => emojiToChar[emoji] || '')
     .join('');
 }
